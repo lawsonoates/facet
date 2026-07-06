@@ -1,18 +1,46 @@
 {
 	"$schema": "https://json.schemastore.org/package.json",
-	"name": "@facet/agent",
-	"private": true,
+	"name": "@lawsonoates/facet-agent",
+	"version": "0.1.0",
+	"description": "App contract, stable tool IDs, toolset helper, TUI surface, and bot bridge for Facet agents.",
+	"author": "Lawson Oates (https://github.com/lawsonoates)",
+	"license": "MIT",
+	"homepage": "https://github.com/lawsonoates/facet#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lawsonoates/facet.git",
+		"directory": "packages/agent"
+	},
+	"keywords": ["ai", "agent", "ai-sdk"],
 	"type": "module",
+	"main": "./dist/index.mjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
 	"exports": {
-		".": "./src/agent.ts",
-		"./bot": "./src/bot.ts",
-		"./tui": "./src/tui.ts"
+		".": {
+			"import": "./dist/index.mjs",
+			"types": "./dist/index.d.mts"
+		},
+		"./bot": {
+			"import": "./dist/bot.mjs",
+			"types": "./dist/bot.d.mts"
+		},
+		"./tui": {
+			"import": "./dist/tui.mjs",
+			"types": "./dist/tui.d.mts"
+		}
+	},
+	"files": ["dist"],
+	"publishConfig": {
+		"access": "public"
 	},
 	"scripts": {
+		"build": "tsdown",
+		"prepublishOnly": "bun run build",
 		"typecheck": "tsgo -b --noEmit"
 	},
 	"dependencies": {
-		"@facet/tui": "workspace:*"
+		"@lawsonoates/facet-tui": "workspace:*"
 	},
 	"peerDependencies": {
 		"ai": ">=5.0.0",
@@ -32,6 +60,7 @@
 		"@typescript/native-preview": "catalog:",
 		"ai": "catalog:",
 		"chat": "catalog:",
+		"tsdown": "catalog:",
 		"typescript": "catalog:"
 	}
 }

@@ -1,5 +1,5 @@
-import { createTUI } from "@facet/tui/tui";
-import { renderFullStream, renderTextStream, writeText } from "@facet/tui/stream";
+import { createTUI } from "@lawsonoates/facet-tui/tui";
+import { renderFullStream, renderTextStream, writeText } from "@lawsonoates/facet-tui/stream";
 import type { AgentApp, AgentContext, AgentMessage, AgentStreamResponse } from "./agent";
 
 export type TuiSurfaceOptions = {

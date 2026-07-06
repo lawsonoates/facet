@@ -1,15 +1,43 @@
 {
 	"$schema": "https://json.schemastore.org/package.json",
-	"name": "@facet/tui",
-	"private": true,
+	"name": "@lawsonoates/facet-tui",
+	"version": "0.1.0",
+	"description": "OpenTUI terminal UI surface and stream rendering helpers for Facet agents.",
+	"author": "Lawson Oates (https://github.com/lawsonoates)",
+	"license": "MIT",
+	"homepage": "https://github.com/lawsonoates/facet#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lawsonoates/facet.git",
+		"directory": "packages/tui"
+	},
+	"keywords": ["ai", "agent", "tui", "opentui"],
 	"type": "module",
 	"exports": {
-		"./prompt": "./src/prompt.ts",
-		"./stream": "./src/stream.ts",
-		"./tui": "./src/tui.tsx",
-		"./types": "./src/types.ts"
+		"./prompt": {
+			"import": "./dist/prompt.mjs",
+			"types": "./dist/prompt.d.mts"
+		},
+		"./stream": {
+			"import": "./dist/stream.mjs",
+			"types": "./dist/stream.d.mts"
+		},
+		"./tui": {
+			"import": "./dist/tui.mjs",
+			"types": "./dist/tui.d.mts"
+		},
+		"./types": {
+			"import": "./dist/types.mjs",
+			"types": "./dist/types.d.mts"
+		}
+	},
+	"files": ["dist"],
+	"publishConfig": {
+		"access": "public"
 	},
 	"scripts": {
+		"build": "tsdown",
+		"prepublishOnly": "bun run build",
 		"typecheck": "tsgo -b --noEmit"
 	},
 	"dependencies": {
@@ -23,6 +51,7 @@
 		"@types/bun": "catalog:",
 		"@types/react": "^19.1.8",
 		"@typescript/native-preview": "catalog:",
+		"tsdown": "catalog:",
 		"typescript": "catalog:"
 	}
 }

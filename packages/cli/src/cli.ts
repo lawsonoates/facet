@@ -2,8 +2,8 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { isAbsolute, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
-import { assertAgentApp, type AgentApp } from "@facet/agent";
-import { createTuiSurface, renderAgentResponse } from "@facet/agent/tui";
+import { assertAgentApp, type AgentApp } from "@lawsonoates/facet-agent";
+import { createTuiSurface, renderAgentResponse } from "@lawsonoates/facet-agent/tui";
 
 const DEFAULT_ENTRYPOINT = "src/index.ts";
 
@@ -213,7 +213,7 @@ function getStringFlag(args: ParsedArgs, name: string): string | undefined {
 }
 
 function appTemplate(name: string): string {
-	return `import { defineAgentApp } from "@facet/agent";
+	return `import { defineAgentApp } from "@lawsonoates/facet-agent";
 import { createAgent } from "./agent";
 import { createBot } from "./bot";
 
@@ -227,7 +227,7 @@ export default defineAgentApp({
 
 function agentTemplate(): string {
 	return `import { createOpenAI } from "@ai-sdk/openai";
-import type { AgentContext } from "@facet/agent";
+import type { AgentContext } from "@lawsonoates/facet-agent";
 import { ToolLoopAgent } from "ai";
 import { tools } from "./tools";
 
@@ -252,7 +252,7 @@ function botTemplate(userName: string): string {
 	return `import { createMemoryState } from "@chat-adapter/state-memory";
 import { createTelegramAdapter } from "@chat-adapter/telegram";
 import { createWebAdapter } from "@chat-adapter/web";
-import { createBotAgent } from "@facet/agent/bot";
+import { createBotAgent } from "@lawsonoates/facet-agent/bot";
 import { Chat } from "chat";
 import { createAgent } from "./agent";
 
@@ -285,7 +285,7 @@ export function createBot() {
 function toolsTemplate(): string {
 	return `import { tool } from "ai";
 import { z } from "zod";
-import { defineTool, toolset } from "@facet/agent";
+import { defineTool, toolset } from "@lawsonoates/facet-agent";
 
 const echoTool = defineTool(
 \t"echo",

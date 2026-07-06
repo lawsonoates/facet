@@ -5,7 +5,9 @@
 	"workspaces": ["packages/*"],
 	"type": "module",
 	"scripts": {
+		"build": "bun turbo run build",
 		"check": "bun run typecheck",
+		"publish": "bun run script/publish.ts",
 		"typecheck": "bun turbo run typecheck"
 	},
 	"devDependencies": {
@@ -22,6 +24,7 @@
 		"@typescript/native-preview": "7.0.0-dev.20251207.1",
 		"ai": "^6.0.191",
 		"chat": "^4.29.0",
+		"tsdown": "0.22.3",
 		"typescript": "6.0.3"
 	}
 }
