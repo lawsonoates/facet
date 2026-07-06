@@ -1,0 +1,24 @@
+{
+	"$schema": "https://json.schemastore.org/package.json",
+	"name": "@facet/cli",
+	"private": true,
+	"type": "module",
+	"bin": {
+		"facet": "./src/cli.ts"
+	},
+	"exports": {
+		"./cli": "./src/cli.ts"
+	},
+	"scripts": {
+		"typecheck": "tsgo -b --noEmit"
+	},
+	"dependencies": {
+		"@facet/agent": "workspace:*"
+	},
+	"devDependencies": {
+		"@tsconfig/bun": "catalog:",
+		"@types/bun": "catalog:",
+		"@typescript/native-preview": "catalog:",
+		"typescript": "catalog:"
+	}
+}

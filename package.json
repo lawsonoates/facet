@@ -1,0 +1,27 @@
+{
+	"$schema": "https://json.schemastore.org/package.json",
+	"name": "facet",
+	"private": true,
+	"workspaces": ["packages/*"],
+	"type": "module",
+	"scripts": {
+		"check": "bun run typecheck",
+		"typecheck": "bun turbo run typecheck"
+	},
+	"devDependencies": {
+		"@tsconfig/bun": "catalog:",
+		"@types/bun": "catalog:",
+		"@typescript/native-preview": "catalog:",
+		"turbo": "^2.9.3",
+		"typescript": "catalog:"
+	},
+	"packageManager": "bun@1.3.13",
+	"catalog": {
+		"@tsconfig/bun": "1.0.10",
+		"@types/bun": "1.3.13",
+		"@typescript/native-preview": "7.0.0-dev.20251207.1",
+		"ai": "^6.0.191",
+		"chat": "^4.29.0",
+		"typescript": "6.0.3"
+	}
+}

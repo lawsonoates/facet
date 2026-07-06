@@ -1,0 +1,28 @@
+{
+	"$schema": "https://json.schemastore.org/package.json",
+	"name": "@facet/tui",
+	"private": true,
+	"type": "module",
+	"exports": {
+		"./prompt": "./src/prompt.ts",
+		"./stream": "./src/stream.ts",
+		"./tui": "./src/tui.tsx",
+		"./types": "./src/types.ts"
+	},
+	"scripts": {
+		"typecheck": "tsgo -b --noEmit"
+	},
+	"dependencies": {
+		"@opentui/core": "^0.2.15",
+		"@opentui/react": "^0.2.15",
+		"ai": "catalog:",
+		"react": "^19.1.0"
+	},
+	"devDependencies": {
+		"@tsconfig/bun": "catalog:",
+		"@types/bun": "catalog:",
+		"@types/react": "^19.1.8",
+		"@typescript/native-preview": "catalog:",
+		"typescript": "catalog:"
+	}
+}
